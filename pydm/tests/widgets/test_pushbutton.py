@@ -1,7 +1,6 @@
 # Unit Tests for the PyDMPushButton Widget
 
 
-import os
 import pytest
 import hashlib
 import numpy as np
@@ -13,9 +12,6 @@ from ...PyQt.QtGui import QColor, QInputDialog, QMessageBox
 from ...widgets.base import PyDMWidget
 from ...widgets.pushbutton import PyDMPushButton
 from ...utilities.iconfont import IconFont
-
-
-current_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 # --------------------
@@ -84,7 +80,6 @@ def test_construct(qtbot, label, press_value, relative, init_channel, icon_font_
 
     pydm_pushbutton = PyDMPushButton(label=label, pressValue=press_value, relative=relative,
                                      init_channel=init_channel, icon=icon)
-    pydm_pushbutton.icon()
     qtbot.addWidget(pydm_pushbutton)
 
     assert pydm_pushbutton.text() == label if label else pydm_pushbutton.text() == ""
@@ -213,7 +208,6 @@ def test_set_password(qtbot, password_protected, plain_text_password):
 
     assert pydm_pushbutton._password_protected == password_protected
     assert encrypted_password == expected_encrypted_password
-
 
 @pytest.mark.parametrize("is_widget_protected_with_password, plain_text_password, input_dialog_status,"
                          "expected_validation_status", [

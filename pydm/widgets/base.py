@@ -623,7 +623,7 @@ class PyDMWidget(PyDMPrimitiveWidget):
         # from the PV
         if self._precision_from_pv:
             return
-        if self._prec != int(new_prec) and new_prec >= 0:
+        if new_prec and self._prec != int(new_prec) and new_prec >= 0:
             self._prec = int(new_prec)
             self.update_format_string()
 

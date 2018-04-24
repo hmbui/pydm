@@ -1,8 +1,6 @@
-# coding: utf-8
 # Unit Tests for the PyDMLabel Widget
 
 
-import os
 import pytest
 import numpy as np
 import logging
@@ -11,8 +9,6 @@ from ...utilities import is_pydm_app
 from ...widgets.label import PyDMLabel
 from ...widgets.base import PyDMWidget
 from pydm.widgets.display_format import parse_value_for_display, DisplayFormat
-
-current_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 # --------------------

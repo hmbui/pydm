@@ -296,9 +296,8 @@ class PyDMPushButton(QPushButton, PyDMWritableWidget):
         if not self._password_protected:
             return True
 
-        pwd, ok = QInputDialog().getText(None, "Authentication",
-                                       "Please enter your password:",
-                                       QLineEdit.Password, "")
+        pwd, ok = QInputDialog().getText(None, "Authentication", "Please enter your password:",
+                                         QLineEdit.Password, "")
         pwd = str(pwd)
         if not ok or pwd == "":
             return False
