@@ -282,6 +282,14 @@ class PyDMWidget(PyDMPrimitiveWidget):
         self.channeltype = type(self.value)
         if self.channeltype == np.ndarray:
             self.subtype = self.value.dtype.type
+        else:
+            try:
+                if self.channeltype == unicode:
+                    # For Python 2.7, set the the channel type to str instead of unicode
+                    self.channeltype = str
+            except NameError:
+                pass
+
         self.update_format_string()
 
     def alarm_severity_changed(self, new_alarm_severity):
