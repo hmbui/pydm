@@ -529,7 +529,6 @@ def test_set_display(qtbot, qapp, value, has_focus, channel_type, display_format
     if has_focus:
         pydm_lineedit.show()
         qapp.processEvents()
-        qtbot.waitUntil(lambda: pydm_lineedit.hasFocus())
         pydm_lineedit.set_display()
 
         # If there's no focus on the widget, its display will not be updated
