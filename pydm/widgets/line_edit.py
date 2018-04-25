@@ -267,6 +267,8 @@ class PyDMLineEdit(QLineEdit, PyDMWritableWidget, DisplayFormat):
         without pressing return.  Resets the value of the text field to the
         current channel value.
         """
+        print("focusOut")
         if self._display is not None:
+            print("focusOut: tesxt reset")
             self.setText(self._display)
         super(PyDMLineEdit, self).focusOutEvent(event)
