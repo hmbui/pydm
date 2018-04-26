@@ -2,11 +2,11 @@ import platform
 
 from ...utilities import is_pydm_app, path_info, which
 from ...PyQt import QtGui
-from ...application import PyDMApplication
 
 
 def test_is_pydm_app(qapp):
     assert is_pydm_app(qapp)
+
 
 
 def test_negative_is_pydm_app(qapp):

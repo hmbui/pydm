@@ -285,6 +285,7 @@ class PyDMWidget(PyDMPrimitiveWidget):
         else:
             try:
                 if self.channeltype == unicode:
+
                     # For Python 2.7, set the channel type to str instead of unicode
                     self.channeltype = str
             except NameError:
