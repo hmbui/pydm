@@ -528,7 +528,7 @@ def test_set_display(qtbot, qapp, value, has_focus, channel_type, display_format
     if has_focus:
         pydm_lineedit.show()
         qapp.processEvents()
-        qtbot.waitUntil(lambda: pydm_lineedit.hasFocus())
+        qtbot.waitUntil(lambda: pydm_lineedit.hasFocus(), timeout=10000)
 
         pydm_lineedit.set_display()
 
@@ -584,11 +584,11 @@ def test_focus_out_event(qtbot, qapp, display_value):
     pydm_lineedit._display = display_value
 
     qapp.processEvents()
-    qtbot.waitUntil(lambda: pydm_lineedit.hasFocus())
+    qtbot.waitUntil(lambda: pydm_lineedit.hasFocus(), timeout=10000)
 
     pydm_lineedit.setText("Canceled after the focusOut event")
     pydm_lineedit.clearFocus()
-    qtbot.waitUntil(lambda: not pydm_lineedit.hasFocus())
+    qtbot.waitUntil(lambda: not pydm_lineedit.hasFocus(), timeout=10000)
 
     # Make sure the widget still retains the previously set value after the focusOut event
     assert pydm_lineedit.text() == display_value
