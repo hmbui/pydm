@@ -276,30 +276,30 @@ def test_validate_password(qtbot, monkeypatch, is_widget_protected_with_password
 
 @pytest.mark.parametrize("initial_value, press_value, is_password_protected, show_confirm_dialog,"
                          "confirm_message, confirm_dialog_response, is_password_validated, is_value_relative,", [
-    # (123, 345, True, True, "Continue?", QMessageBox.Yes, True, True),
-    # (123, "345", True, True, "", QMessageBox.Yes, True, True),
-    # (123.345, 345.678, True, True, "", QMessageBox.Yes, True, True),
-    # (123.345, "345.678", True, True, "", QMessageBox.Yes, True, True),
+    (123, 345, True, True, "Continue?", QMessageBox.Yes, True, True),
+    (123, "345", True, True, "", QMessageBox.Yes, True, True),
+    (123.345, 345.678, True, True, "", QMessageBox.Yes, True, True),
+    (123.345, "345.678", True, True, "", QMessageBox.Yes, True, True),
 
     ("123", 345, False, True, "", QMessageBox.Yes, True, True),
-    # ("123", 345.678, True, False, "", QMessageBox.Yes, True, True),
-    # ("123.345", 345.678, False, False, "", QMessageBox.Yes, True, True),
-    # ("123.345", "345.678", False, False, "", QMessageBox.Yes, True, True),
-    #
-    # ("123", 345, True, True, "", QMessageBox.No, True, True),
-    # ("123", 345, False, True, "", QMessageBox.No, True, True),
-    #
-    # ("123", 345, True, True, "Continue?", QMessageBox.Yes, True, False),
-    # ("123", 345, True, True, "", QMessageBox.Yes, True, False),
-    # ("123.345", 345.678, True, True, "", QMessageBox.Yes, True, False),
-    # ("123.345", "345.678", True, True, "", QMessageBox.Yes, True, False),
-    #
-    # ("123", 345, True, True, "Continue?", QMessageBox.Yes, False, True),
-    # ("123", 345, True, True, "", QMessageBox.Yes, False, False),
-    # ("abc", "def", True, True, "", QMessageBox.Yes, False, False),
-    # ("abc", None, True, True, "", QMessageBox.Yes, False, False),
-    # (None, "def", True, True, "", QMessageBox.Yes, False, False),
-    # (None, None, True, True, "", QMessageBox.Yes, False, False),
+    ("123", 345.678, True, False, "", QMessageBox.Yes, True, True),
+    ("123.345", 345.678, False, False, "", QMessageBox.Yes, True, True),
+    ("123.345", "345.678", False, False, "", QMessageBox.Yes, True, True),
+
+    ("123", 345, True, True, "", QMessageBox.No, True, True),
+    ("123", 345, False, True, "", QMessageBox.No, True, True),
+
+    ("123", 345, True, True, "Continue?", QMessageBox.Yes, True, False),
+    ("123", 345, True, True, "", QMessageBox.Yes, True, False),
+    ("123.345", 345.678, True, True, "", QMessageBox.Yes, True, False),
+    ("123.345", "345.678", True, True, "", QMessageBox.Yes, True, False),
+
+    ("123", 345, True, True, "Continue?", QMessageBox.Yes, False, True),
+    ("123", 345, True, True, "", QMessageBox.Yes, False, False),
+    ("abc", "def", True, True, "", QMessageBox.Yes, False, False),
+    ("abc", None, True, True, "", QMessageBox.Yes, False, False),
+    (None, "def", True, True, "", QMessageBox.Yes, False, False),
+    (None, None, True, True, "", QMessageBox.Yes, False, False),
 ])
 def test_send_value(qtbot, monkeypatch, signals, initial_value, press_value, is_password_protected, show_confirm_dialog,
                     confirm_message, confirm_dialog_response, is_password_validated, is_value_relative):
